@@ -1,10 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Counter />
+      <ExternalUsers />
+    </div>
+  );
+}
+
+function User(props) {
+  return (
+    <div>
+      <h2>Name: {props.name}</h2>
+    </div>
+  );
+}
+
+function ExternalUsers() {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    // console.log('Use Effect Inside!');
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  return (
+    <div>
+      <h3>External Users</h3>
+      {users.map((user) => (
+        <User name={user.name}></User>
+      ))}
     </div>
   );
 }
