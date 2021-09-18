@@ -1,19 +1,26 @@
 import './App.css';
 
 function App() {
-  const nayoks = [
-    { name: 'Mostakimul', age: 24 },
-    { name: 'Karim', age: 22 },
-    { name: 'Mohit', age: 23 },
+  const products = [
+    { name: 'Mobile', price: 150000 },
+    { name: 'laptop', price: 15000 },
+    { name: 'Camera', price: 120000 },
+    { name: 'Watch', price: 10000 },
   ];
-
   return (
     <div className="App">
-      <ul>
-        {nayoks.map((nayok) => (
-          <li>{nayok.name}</li>
-        ))}
-      </ul>
+      {products.map((product) => (
+        <Product name={product.name} price={product.price} />
+      ))}
+    </div>
+  );
+}
+
+function Product(props) {
+  return (
+    <div>
+      <h3>Name: {props.name}</h3>
+      <p>Price: {props.price}</p>
     </div>
   );
 }
