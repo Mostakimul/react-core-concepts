@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Hello world!!!</h2>
+      <Person></Person>
+    </div>
+  );
+}
+
+// Create a component
+function Person() {
+  const personStyle = {
+    backgroundColor: 'lightblue',
+  };
+  return (
+    <div style={personStyle}>
+      <h3>Name: Mostakimul Karim</h3>
+      <p>Profession: Student</p>
     </div>
   );
 }
