@@ -1,26 +1,31 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const products = [
-    { name: 'Mobile', price: 150000 },
-    { name: 'laptop', price: 15000 },
-    { name: 'Camera', price: 120000 },
-    { name: 'Watch', price: 10000 },
-  ];
   return (
     <div className="App">
-      {products.map((product) => (
-        <Product name={product.name} price={product.price} />
-      ))}
+      <Counter />
     </div>
   );
 }
 
-function Product(props) {
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrease = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+  };
+  const handleDecrease = () => {
+    const newCount = count - 1;
+    setCount(newCount);
+  };
+
   return (
     <div>
-      <h3>Name: {props.name}</h3>
-      <p>Price: {props.price}</p>
+      <h2>Count: {count}</h2>
+      <button onClick={handleIncrease}>Increase</button>
+      <button onClick={handleDecrease}>Decrease</button>
     </div>
   );
 }
