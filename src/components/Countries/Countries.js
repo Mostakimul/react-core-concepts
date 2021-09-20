@@ -19,12 +19,7 @@ const Countries = () => {
     <div>
       <h3>Hello! Have a world tour!:</h3>
       {countries.map((country) => (
-        <Country
-          name={country.name}
-          capital={country.capital}
-          population={country.population}
-          key={country.name}
-        />
+        <Country country={country} key={country.name} />
       ))}
     </div>
   );
